@@ -10,7 +10,7 @@ import { PostService } from 'src/serivces/post.service';
 })
 export class LoginPage implements OnInit {
 usuario: string="";
-senha: string="";
+senha: string=""; 
   constructor(
     private service: PostService,
     private router: Router,
@@ -20,25 +20,25 @@ senha: string="";
   ngOnInit() {
   }
   login(){
-    let dados= {
+    let dados = {
       requisicao: 'login',
       usuario: this.usuario,
       senha: this.senha
-    }
+    }  
     //console.log(dados)
-    //(dados) é o que está sendo passado para a API
-    //(data) é o que está sendo retornado da API
-    this.service.dadosApi(dados, 'usuarios.php').subscribe( async data =>{
-      //console.log(data);
-      if (data['success']){
-        if(data['result']['nivel']=='admin' || data['result']['nivel']=='gerente'){
+    // (dados) é o que está sendo passado para a API
+    // (data) é o que está sendo retornado da API
+    this.service.dadosApi(dados,'usuarios.php').subscribe( async data =>{
+      console.log(data);
+      if(data['success']){
+        if(data['result']['nivel']=='admin' || data['result']['nivel']=='caixa'){
           this.router.navigate(['usuarios']);
         }else{
           this.router.navigate(['folder']);
         }
         const toast = await this.toastCtrl.create({
           message: "Login efetuado com sucesso",
-          position: 'top',
+          position:'top',
           color:'success',
           duration:2500
         });
@@ -46,7 +46,7 @@ senha: string="";
       }else{
         const toast = await this.toastCtrl.create({
           message: data['msg'],
-          position: 'bottom',
+          position:'bottom',
           color:'danger',
           duration:2500
         });
