@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { PostService } from 'src/serivces/post.service';
 
-
 @Component({
   selector: 'app-usuarios',
   templateUrl: './usuarios.page.html',
@@ -47,7 +46,6 @@ usuarios:any = []; //define uma matriz vazia
             this.usuarios.push(usuario);
           }
         }
-        //console.log(this.usuarios);
       });
     });
   }// fim do método carregar
@@ -58,7 +56,30 @@ usuarios:any = []; //define uma matriz vazia
     this.router.navigate(['mostrar-usuario/'+id+'/'+nome+'/'+usuario+'/'+nivel]);
   }
   ativar(id, ativo){
+    if(ativo=='1'){
+      return new Promise(()=>{
+        let dados = {
+          requisicao: 'excluir',
+          id: id,
+        };
+        this.service.dadosApi(dados, "usuarios.php").subscribe(data=>{
+        this,this.ionViewWillEnter();
+      })
+    });
+  }
+    else {
+      return new Promise(()=>{
+        let dados = {
+          requisicao: 'ativar',
+          id: id,
+        };
+        this.service.dadosApi(dados, "usuarios.php").subscribe(data=>{
+        this,this.ionViewWillEnter();
+      })
+    });
+    };
+
 
   }
-
+  
 }
