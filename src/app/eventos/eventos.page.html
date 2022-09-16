@@ -5,8 +5,8 @@
           <ion-menu-button></ion-menu-button>
       </ion-button>
     </ion-buttons>
-    <ion-title>Lista de Usuários</ion-title>
-    <ion-buttons slot="primary" (click)="addUsuario()">
+    <ion-title>Lista de Eventos</ion-title>
+    <ion-buttons slot="primary" (click)="addEventos()">
       <ion-button>Novo
         <ion-icon slot="end" name="add"></ion-icon> 
       </ion-button>
@@ -23,27 +23,30 @@
   </ion-buttons>
 </ion-row>
 
+
+
+
 <ion-content>
 <ion-list>
-  <ion-item-sliding *ngFor="let user of usuarios">
+  <ion-item-sliding *ngFor="let event of eventos">
     <ion-item-options side="start">
-      <ion-item-option (click)="editar(user.id, user.nome, user.usuario, user.senha_original,user.nivel)">
+      <ion-item-option (click)="editar(event.id, event.nome, event.data, event.capacidade)">
         Editar
       </ion-item-option>
     </ion-item-options>
-    <ion-item *ngIf="user.ativo==1"><ion-label  color="tertiary">{{user.nome}}</ion-label></ion-item>
-    <ion-item *ngIf="user.ativo==0"><ion-label  color="danger" >{{user.nome}}</ion-label></ion-item>    
+    <ion-item *ngIf="event.ativo==1"><ion-label  color="tertiary">{{event.nome}}</ion-label></ion-item>
+    <ion-item *ngIf="event.ativo==0"><ion-label  color="danger" >{{event.nome}}</ion-label></ion-item>    
     
     <ion-item-options side="end">
-      <ion-item-option color="success" (click)="mostrar(user.id, user.nome, user.usuario,user.nivel)">
+      <ion-item-option color="success" (click)="mostrar(event.id, event.nome, event.data,event.capacidade)">
         Mostrar
       </ion-item-option>
 
-      <ion-item-option *ngIf="user.ativo==0" color="danger" (click)="ativar(user.id, user.ativo)">
+      <ion-item-option *ngIf="event.ativo==0" color="danger" (click)="ativar(event.id, event.ativo)">
         Ativar
       </ion-item-option>
 
-      <ion-item-option *ngIf="user.ativo==1" color="danger" (click)="alertaexclusao(user.id, user.usuario)">
+      <ion-item-option *ngIf="event.ativo==1" color="danger" (click)="alertaexclusao(event.id, event.usuario)">
         Desativar
       </ion-item-option>
 

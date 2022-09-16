@@ -27,6 +27,18 @@ const routes: Routes = [
   {
     path: 'add-usuario/:id/:nome/:usuario/:senha/:nivel',
     loadChildren: () => import('./add-usuario/add-usuario.module').then( m => m.AddUsuarioPageModule)
+  },
+  {
+    path: 'mostrar-usuario/:id/:nome/:usuario/:nivel',
+    loadChildren: () => import('./mostrar-usuario/mostrar-usuario.module').then( m => m.MostrarUsuarioPageModule)
+  },
+  {
+    path: 'eventos',
+    loadChildren: () => import('./eventos/eventos.module').then( m => m.EventosPageModule)
+  },
+  {
+    path: 'add-eventos',
+    loadChildren: () => import('./add-eventos/add-eventos.module').then( m => m.AddEventosPageModule)
   }
 ];
 

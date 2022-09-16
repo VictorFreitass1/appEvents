@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { PostService } from 'src/serivces/post.service';
 
 @Component({
@@ -14,8 +15,9 @@ inicial:number=0;
 usuarios:any = []; //define uma matriz vazia
   constructor(
     private service: PostService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private alertCtr: AlertController
+    ) { }
 
   ngOnInit() {
   }
@@ -81,5 +83,33 @@ usuarios:any = []; //define uma matriz vazia
 
 
   }
-  
+  async alertaexclusao(id, usuario){
+    const alert = await this.alertCtr.create({
+      header:'Confirmação de exclusão do usuário ' + usuario,
+      buttons:[{
+        text:'Cancelar', role:'cancel', cssClass:'light',
+        handler:()=>{
+          // Ação caso o usuário clique em cancelar
+        }},{
+            text:'Ok',
+            handler:()=>{
+              this.ativar(id,1)
+          }
+        }]
+    });
+  alert.present();
+  }
+async mostrarnivel(nivel){
+    const alert = await this.alertCtr.create({
+      header:'Você está no nivel ',
+      message:'<h2>'+nivel+'</h2>',
+      buttons:[{
+        text:'Cancelar', role:'cancel', cssClass:'light',
+        handler:()=>{
+          // Ação caso o usuário clique em cancelar
+        }}]
+    });
+  alert.present();
+    
+  }
 }
