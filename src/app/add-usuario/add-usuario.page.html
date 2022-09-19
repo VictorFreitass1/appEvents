@@ -27,7 +27,6 @@
   <ion-label position="floating">Senha</ion-label>
   <ion-input type="password" [(ngModel)]="senha"></ion-input>
 </ion-item>
-<!-- Campo seleção de nível -->
 <ion-item>
   <ion-label position="floating">Nível</ion-label>
   <ion-select placeholder="Selecione" [(ngModel)]= "nivel">
@@ -37,6 +36,7 @@
     <ion-select-option value="caixa">Caixa</ion-select-option>
   </ion-select>
 </ion-item>
+
 
 <ion-button *ngIf="!id" color="success" expand="block" (click)="cadastrar()">
   Adicionar

@@ -2,9 +2,9 @@
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-button>
-          <ion-menu-button></ion-menu-button>
-          <ion-back-button></ion-back-button>
-    </ion-button>
+        <ion-menu-button></ion-menu-button>
+        <ion-back-button></ion-back-button>
+      </ion-button>
     </ion-buttons>
     <ion-title *ngIf="!id">Novo Evento</ion-title>
     <ion-title *ngIf="id>0">Editar Evento</ion-title>
@@ -12,24 +12,35 @@
 </ion-header>
 
 <ion-content class="ion-padding" color="light">
-<!-- Campo Nome -->
-<ion-item>
-  <ion-label position="floating">Nome</ion-label>
-  <ion-input type="text" [(ngModel)]="nome"></ion-input>
-</ion-item>
-<!-- Campo Data -->
-<ion-item>
-  <ion-label position="floating">Data</ion-label>
-  <ion-input type="text" [(ngModel)]="data"></ion-input>
-</ion-item>
-<!-- Campo Capacidade -->
-<ion-item>
-  <ion-label position="floating">Capacidade</ion-label>
-  <ion-input type="text" [(ngModel)]="capacidade"></ion-input>
-</ion-item>
+  <!-- Campo Nome -->
+  <ion-item>
+    <ion-label position="floating">Nome</ion-label>
+    <ion-input type="text" [(ngModel)]="nome"></ion-input>
+  </ion-item>
+  <!-- Campo Data -->
+  <ion-item>
+    <ion-label position="floating">Data</ion-label>
+    <ion-input type="text" [(ngModel)]="data"></ion-input>
+  </ion-item>
+  <!-- Campo Capacidade -->
+  <ion-item>
+    <ion-label position="floating">Capacidade</ion-label>
+    <ion-input type="text" [(ngModel)]="capacidade"></ion-input>
+  </ion-item>
 
-<ion-button *ngIf="!id" color="success" expand="block" (click)="cadastrar()">
-  Adicionar
-</ion-button>
+  <ion-item>
+    <ion-label position="floating">Usuario-id</ion-label>
+    <ion-select  placeholder="Selecione" [(ngModel)]="usuarios_id">
+      <ion-select-option *ngFor="let user of usuarios" value="{{user.id}}">{{user.nome}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-button *ngIf="!id" color="success" expand="block" (click)="cadastrar()">
+    Adicionar
+  </ion-button>
+  <ion-button *ngIf="id" color="primary" expand="block" (click)="editar()">
+    Atualizar
+  </ion-button>
 
 </ion-content>
