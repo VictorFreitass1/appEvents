@@ -4,18 +4,27 @@
       <ion-button>
           <ion-menu-button></ion-menu-button>
           <ion-back-button></ion-back-button>
-    </ion-button>
+      </ion-button>
     </ion-buttons>
-    <ion-title *ngIf="!id">Mostrar Usuário</ion-title>
+    <ion-title >Mostra Usuário</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
   <ion-card class="ion-padding">
+   
     <ion-card-title>{{nome}}</ion-card-title>
     <ion-card-subtitle>{{usuario}}</ion-card-subtitle>
     <ion-card-content>
-      {{nivel}}
+      <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" >
+      <br>
+    {{nivel}}
+   
     </ion-card-content>
+    <ion-button color="danger">
+      <input type="file" class="upload" [(ngModel)]=avatar />
+    </ion-button>
   </ion-card>
+  <ion-button color="primary" expand="block" (click)="gravaavatar()">Gravar Avatar</ion-button>
 </ion-content>

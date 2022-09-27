@@ -38,7 +38,7 @@ export class AddEventosPage implements OnInit {
         limit: 100,
         start: 0
       };
-      this.service.dadosApi(dados,'usuarios.php').subscribe(data =>{
+      this.service.dadosApi(dados,'Eventos.php').subscribe(data =>{
         console.log (data);
         if(data['result']=='0'){
           this.ionViewWillEnter();
@@ -65,7 +65,7 @@ export class AddEventosPage implements OnInit {
         usuarios_id: this.usuarios_id
       }
       //console.log(dados);
-      this.service.dadosApi(dados,"eventos.php").subscribe(data=>{
+      this.service.dadosApi(dados,"Eventos.php").subscribe(data=>{
         if(data['success']){
           this.router.navigate(['eventos']);
           this.id=0;this.nome="";this.data="";this.capacidade=10;

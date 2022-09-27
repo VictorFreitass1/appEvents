@@ -39,13 +39,13 @@ usuarios:any = []; //define uma matriz vazia
         limit:this.limite,
         start:this.inicial
       };
-      this.service.dadosApi(dados,'usuarios.php').subscribe(data =>{
+      this.service.dadosApi(dados,'api_usuario.php').subscribe(data =>{
         
         if(data['result']=='0'){
           this.ionViewWillEnter();
         }else{
           for(let usuario of data['result']){
-            this.usuarios.push(usuario);
+            this.usuarios.push(usuario[0]);
           }
         }
       });
@@ -64,7 +64,7 @@ usuarios:any = []; //define uma matriz vazia
           requisicao: 'excluir',
           id: id,
         };
-        this.service.dadosApi(dados, "usuarios.php").subscribe(data=>{
+        this.service.dadosApi(dados, "api_usuario.php").subscribe(data=>{
         this,this.ionViewWillEnter();
       })
     });
@@ -75,7 +75,7 @@ usuarios:any = []; //define uma matriz vazia
           requisicao: 'ativar',
           id: id,
         };
-        this.service.dadosApi(dados, "usuarios.php").subscribe(data=>{
+        this.service.dadosApi(dados, "api_usuario.php").subscribe(data=>{
         this,this.ionViewWillEnter();
       })
     });
