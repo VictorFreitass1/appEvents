@@ -65,7 +65,7 @@ usuarios:any = []; //define uma matriz vazia
           id: id,
         };
         this.service.dadosApi(dados, "api_usuario.php").subscribe(data=>{
-        this,this.ionViewWillEnter();
+        this.ionViewWillEnter();
       })
     });
   }
@@ -76,7 +76,7 @@ usuarios:any = []; //define uma matriz vazia
           id: id,
         };
         this.service.dadosApi(dados, "api_usuario.php").subscribe(data=>{
-        this,this.ionViewWillEnter();
+        this.ionViewWillEnter();
       })
     });
     };

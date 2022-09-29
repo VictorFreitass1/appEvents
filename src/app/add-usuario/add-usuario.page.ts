@@ -50,7 +50,6 @@ nivel: string="";
       });
     });
   }
-
   editar(){
     return new Promise(ret=>{
       let dados = {

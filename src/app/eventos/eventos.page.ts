@@ -39,19 +39,19 @@ export class EventosPage implements OnInit {
         limit:this.limite,
         start:this.inicial
       };
-      this.service.dadosApi(dados,'eventos.php').subscribe(data =>{
+      this.service.dadosApi(dados,'api_eventos.php').subscribe(data =>{
 
         if(data['result']=='0'){
           this.ionViewWillEnter();
         }else{
-          for(let eventos of data['result']){
-            this.eventos.push(eventos);
+          for(let Eventos of data['result']){
+            this.eventos.push(Eventos[0]);
           }
         }
       });
     });
 }// fim do método carregar
-editar(id, nome, data, capacidade){
+editar(id, nome, data, capacidade, usuarios_id){
   this.router.navigate(['add-eventos/'+id+'/'+nome+'/'+data+'/'+capacidade]);
 }
 mostrar(id, nome, data, capacidade){
@@ -64,7 +64,7 @@ ativar(id, ativo){
         requisicao: 'excluir',
         id: id,
       };
-      this.service.dadosApi(dados, "eventos.php").subscribe(data=>{
+      this.service.dadosApi(dados, "api_eventos.php").subscribe(data=>{
       this.ionViewWillEnter();
     })
   });
@@ -75,7 +75,7 @@ ativar(id, ativo){
         requisicao: 'ativar',
         id: id,
       };
-      this.service.dadosApi(dados, "eventos.php").subscribe(data=>{
+      this.service.dadosApi(dados, "api_eventos.php").subscribe(data=>{
       this.ionViewWillEnter();
     })
   });

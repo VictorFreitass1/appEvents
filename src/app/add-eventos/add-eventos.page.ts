@@ -81,9 +81,10 @@ export class AddEventosPage implements OnInit {
           nome: this.nome,
           data: this.data,
           capacidade:this.capacidade,
+          usuarios_id: this.usuarios_id,
           id:this.id
         };
-        this.service.dadosApi(dados,"eventos.php").subscribe(data=>{
+        this.service.dadosApi(dados,"Eventos.php").subscribe(data=>{
         if(data['success']){
           this.router.navigate(['eventos'])
         }
