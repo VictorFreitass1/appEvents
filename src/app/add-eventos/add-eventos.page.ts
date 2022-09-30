@@ -24,8 +24,8 @@ export class AddEventosPage implements OnInit {
     this.actRoute.params.subscribe((dadosdarota:any)=>{
       this.id= dadosdarota.id;
       this.nome= dadosdarota.nome;
-      this.data= dadosdarota.usuario;
-      this.capacidade= dadosdarota.senha;
+      this.data= dadosdarota.data;
+      this.capacidade= dadosdarota.capacidade;
 
     });
   }

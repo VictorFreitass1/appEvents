@@ -20,6 +20,7 @@ export class EventosPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    
   }
   ionViewWillEnter(){
     // garante que a nossa tela sempre exiba os dados atualizados
@@ -52,7 +53,7 @@ export class EventosPage implements OnInit {
     });
 }// fim do método carregar
 editar(id, nome, data, capacidade, usuarios_id){
-  this.router.navigate(['add-eventos/'+id+'/'+nome+'/'+data+'/'+capacidade]);
+  this.router.navigate(['add-eventos/'+id+'/'+nome+'/'+data+'/'+capacidade+'/'+usuarios_id]);
 }
 mostrar(id, nome, data, capacidade){
   this.router.navigate(['mostrar-eventos/'+id+'/'+nome+'/'+data+'/'+capacidade]);

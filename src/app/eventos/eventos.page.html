@@ -27,7 +27,7 @@
 <ion-list>
   <ion-item-sliding *ngFor="let event of eventos">
     <ion-item-options side="start">
-      <ion-item-option (click)="editar(event.id, event.nome, event.data, event.capacidade)">
+      <ion-item-option (click)="editar(event.id, event.nome, event.data, event.capacidade, event.usuarios_id)">
         Editar
       </ion-item-option>
     </ion-item-options>

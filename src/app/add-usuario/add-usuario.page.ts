@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TouchSequence } from 'selenium-webdriver';
 import { PostService } from 'src/serivces/post.service';
 
 @Component({
@@ -58,7 +57,8 @@ nivel: string="";
         usuario:this.usuario,
         senha:this.senha,
         nivel:this.nivel,
-        id:this.id
+        id:this.id,
+        avatar: 'semfoto.png'
       };
       this.service.dadosApi(dados,"api_usuario.php").subscribe(data=>{
         if(data['success']){
